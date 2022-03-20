@@ -47,7 +47,8 @@ export default class App {
   create() {
     const lion = new Lion();
     const scale = 0.3 + Math.random() / 2; // 0.3 ~ 0.8
-    const randomX = Math.random() * this.stageWidth * (1 / scale); // 0 ~ stageWidth
+    const randomX =
+      -400 + Math.random() * (this.stageWidth + 800) * (1 / scale); // 0 ~ stageWidth
     const randomY = (-1800 + Math.random() * 1600) * (1 / scale);
     // -this.stageWidth * Math.sin((this.rotate * Math.PI) / 180) * (1 / scale) -
     // 850 +
