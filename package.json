@@ -1,0 +1,23 @@
+{
+  "name": "fallinglion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaki2/falling-Lion.git"
+  },
+  "keywords": [],
+  "author": "ByeonggakYu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaki2/falling-Lion/issues"
+  },
+  "homepage": "https://github.com/gaki2/falling-Lion#readme",
+  "dependencies": {
+    "normal-distribution": "^1.1.1"
+  }
+}

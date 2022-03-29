@@ -30,3 +30,9 @@ export function expression() {
   shuffle(expressions);
   return expressions[0];
 }
+
+export const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+};

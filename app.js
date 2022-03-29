@@ -1,5 +1,6 @@
 import Lion from "./lion.js";
-import { lengthToRadian } from "./utils.js";
+import { lengthToRadian, isMobile } from "./utils.js";
+import * as NormalDistribution from "./node_modules/normal-distribution/lib/NormalDistribution.js";
 
 export default class App {
   constructor() {
@@ -9,8 +10,9 @@ export default class App {
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
     window.addEventListener("resize", this.resize.bind(this));
     this.lions = [];
-    this.totalLions = 75;
+    this.totalLions = isMobile() ? 40 : 75;
     this.nowLions = 0;
+    console.log(NormalDistribution);
 
     this.rotate = 0;
     this.maxRotate = 30;
@@ -23,9 +25,18 @@ export default class App {
     // MouseEvent
     this.isMouseDown = false;
     window.requestAnimationFrame(this.animate.bind(this));
-    window.addEventListener("mousedown", this.onDown.bind(this));
-    window.addEventListener("mousemove", this.onMove.bind(this));
-    window.addEventListener("mouseup", this.onUp.bind(this));
+    window.addEventListener(
+      `${isMobile() ? "touchstart" : "mousedown"}`,
+      this.onDown.bind(this)
+    );
+    window.addEventListener(
+      `${isMobile() ? "touchmove" : "mousemove"}`,
+      this.onMove.bind(this)
+    );
+    window.addEventListener(
+      `${isMobile() ? "touchend" : "mouseup"}`,
+      this.onUp.bind(this)
+    );
   }
 
   resize() {
@@ -94,6 +105,7 @@ export default class App {
   }
 
   onDown(e) {
+    e.preventDefault();
     this.fixedX = e.clientX;
     this.fixedY = e.clientY;
     this.isMouseDown = true;
