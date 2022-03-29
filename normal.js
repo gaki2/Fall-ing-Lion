@@ -6,7 +6,6 @@ export function normalDistribution(mean = 0, sd = 1) {
     while (true) {
       const temp = Math.random();
       if (temp < Math.random()) {
-        console.log(1);
         return mean + temp * sd;
       }
     }
