@@ -35,6 +35,9 @@ export default class App {
       `${isMobile() ? "touchend" : "mouseup"}`,
       this.onUp.bind(this)
     );
+    if (isMobile()) {
+      window.addEventListener("touchcancel", this.onUp.bind(this));
+    }
   }
 
   resize() {
@@ -109,6 +112,7 @@ export default class App {
     this.isMouseDown = true;
   }
   onMove(e) {
+    e.preventDefault();
     // calculate rotate Degree
     if (this.isMouseDown) {
       const nowX = e.clientX;
