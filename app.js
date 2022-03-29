@@ -1,6 +1,6 @@
 import Lion from "./lion.js";
 import { lengthToRadian, isMobile } from "./utils.js";
-import * as NormalDistribution from "./node_modules/normal-distribution/lib/NormalDistribution.js";
+import { normalDistribution } from "./normal.js";
 
 export default class App {
   constructor() {
@@ -12,8 +12,6 @@ export default class App {
     this.lions = [];
     this.totalLions = isMobile() ? 40 : 75;
     this.nowLions = 0;
-    console.log(NormalDistribution);
-
     this.rotate = 0;
     this.maxRotate = 30;
     this.minRotate = -30;
@@ -57,7 +55,7 @@ export default class App {
 
   create() {
     const lion = new Lion();
-    const scale = 0.3 + Math.random() / 2; // 0.3 ~ 0.8
+    const scale = normalDistribution(0.55, 0.1); // 0.3 ~ 0.8 ( 평균 0.7, 표준편차: 0.05)
     const randomX =
       -400 + Math.random() * (this.stageWidth + 800) * (1 / scale); // 0 ~ stageWidth
     const randomY = (-1800 + Math.random() * 1600) * (1 / scale);
