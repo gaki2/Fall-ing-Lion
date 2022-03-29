@@ -1,4 +1,5 @@
 import { PI2, expression, distance } from "./utils.js";
+import { isMobile } from "./utils.js";
 
 export default class Lion {
   constructor() {
@@ -10,6 +11,7 @@ export default class Lion {
     this.parachuteHeight = 30;
     this.expression = expression();
     this.rotate = 0;
+    this.speedReducer = isMobile() ? 50 : 30;
   }
 
   start(x, y, scale) {
@@ -294,7 +296,7 @@ export default class Lion {
     this.resistance += this.accel2 * this.scale;
     this.rotate = degree;
     if (this.rotate < 0) {
-      this.translate.x += 1 + this.rotate ** 2 / 30;
+      this.translate.x += 1 + this.rotate ** 2 / this.speedReducer;
     } else if (this.rotate > 0) {
       this.translate.x -= 1 + this.rotate ** 2 / 30;
     }
