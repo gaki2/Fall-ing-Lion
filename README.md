@@ -7,7 +7,7 @@ https://gaki2.github.io/falling-Lion/
 
 ## 정리
 
-\*\* 1. 정규 분포를 활용해 라이언의 스케일을 조정 \*\*
+** 1. 정규 분포를 활용해 라이언의 스케일을 조정 **
 
 ![normalDistribution](https://user-images.githubusercontent.com/76833478/160664740-6f05357e-542b-4f74-b861-97b66be57646.png)
 
@@ -75,5 +75,15 @@ export function normalDistribution(mean = 0, sd = 1) {
       }
     }
   }
+}
+```
+
+** 2. 마우스 클릭 지점부터 현재 마우스 위치까지의 차이로 기울어지는 각도 지정 **
+
+```
+export function lengthToRadian(stageWidth, fixedX, nowX, maxRotate) {
+  const diff = nowX - fixedX;
+  const rotate = -(diff / stageWidth) * maxRotate;
+  return rotate;
 }
 ```
