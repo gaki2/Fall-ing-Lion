@@ -143,7 +143,6 @@ export default class App {
     return returnRotate;
   }
   onUp() {
-    e.preventDefault();
     this.isMouseDown = false;
   }
 }
