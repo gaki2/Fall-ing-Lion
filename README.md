@@ -87,3 +87,11 @@ export function lengthToRadian(stageWidth, fixedX, nowX, maxRotate) {
   return rotate;
 }
 ```
+
+**3. 좌표와 기본 도형을 활용해 라이언 드로잉**
+```
+    this.drawArms(ctx);
+    this.drawLegs(ctx);
+    this.drawBody(ctx);
+    this.drawHead(ctx);
+```
