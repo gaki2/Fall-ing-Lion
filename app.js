@@ -11,7 +11,7 @@ export default class App {
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
     window.addEventListener("resize", this.resize.bind(this));
     this.lions = [];
-    this.totalLions = isMobile() ? 40 : 75;
+    this.totalLions = 75;
     this.nowLions = 0;
     this.rotate = 0;
     this.maxRotate = 30;
