@@ -51,9 +51,11 @@ export default class App {
   onFull() {
     if (!document.fullscreenElement) {
       document.body.requestFullscreen();
+      this.footer.changeText(true);
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
+        this.footer.changeText(false);
       }
     }
   }
