@@ -1,5 +1,5 @@
 # 추락하는 라이언
-https://gaki2.github.io/Fall-ing-Lion/
+https://fall-ing-lion.vercel.app/
 
 ## 사용법
 화면을 좌,우로 드래그 하면 라이언이 드래그 방향에 맞게 움직이며 추락합니다.
