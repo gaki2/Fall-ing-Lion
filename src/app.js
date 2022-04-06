@@ -1,6 +1,10 @@
 import Lion from "./lion.js";
-import { lengthToRadian, isMobile } from "./utils.js";
-import { normalDistribution } from "./normal.js";
+import "./utils/canvasUtils.js";
+import { lengthToRadian, isMobile } from "./utils/utils.js";
+import { normalDistribution } from "./utils/utils.js";
+import "../style.css";
+import Footer from "./footer.js";
+import Header from "./header.js";
 
 export default class App {
   constructor() {
@@ -37,6 +41,20 @@ export default class App {
     );
     if (isMobile()) {
       window.addEventListener("touchcancel", this.onUp.bind(this));
+    }
+    this.header = new Header();
+    this.header.render();
+    this.footer = new Footer(this.onFull.bind(this));
+    this.footer.render();
+  }
+
+  onFull() {
+    if (!document.fullscreenElement) {
+      document.body.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
     }
   }
 
