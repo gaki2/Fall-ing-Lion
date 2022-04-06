@@ -1,6 +1,13 @@
-import { PI2, expression, distance } from "./utils.js";
-import { isMobile } from "./utils.js";
+import { PI2, expression, distance } from "./utils/utils.js";
+import { isMobile } from "./utils/utils.js";
 
+const BROWN = "rgba(197,149,50,1)";
+const GREEN = "#4caf50";
+const BLUE = "#03a9f4";
+const PINK = "#e91e63";
+const ORANGE = "#ff9800";
+const GRAY = "#9e9e9e";
+const YELLOW = "#fdd835";
 export default class Lion {
   constructor() {
     this.gravity = 5;
@@ -14,6 +21,12 @@ export default class Lion {
     this.speedReducer = isMobile() ? 50 : 30;
   }
 
+  color() {
+    let a = 10;
+    const colors = [BROWN, GREEN, GRAY, BLUE, PINK, ORANGE, YELLOW];
+    const idx = parseInt(Math.random() * 7);
+    return BROWN;
+  }
   start(x, y, scale) {
     this.translate = {
       x: x,
@@ -97,7 +110,7 @@ export default class Lion {
   }
 
   drawArms(ctx) {
-    ctx.fillStyle = "rgba(197,149,50,1)";
+    ctx.fillStyle = this.color();
     // 오른팔
     ctx.beginPath();
     ctx.ellipse(
@@ -188,7 +201,7 @@ export default class Lion {
   }
 
   drawHead(ctx) {
-    ctx.fillStyle = "rgba(197,149,50,1)";
+    ctx.fillStyle = this.color();
     // 왼쪽 귀
     ctx.beginPath();
     //  ctx.lineCap = "round";
@@ -204,7 +217,7 @@ export default class Lion {
     ctx.closePath();
 
     // 귀 안
-    ctx.fillStyle = "#ad833a";
+    ctx.fillStyle = this.color();
     ctx.beginPath();
     ctx.arc(this.center.x - 27, this.center.y - 33, 10, 0, PI2, true);
     ctx.moveTo(this.center.x + 37, this.center.y - 33);
@@ -214,7 +227,7 @@ export default class Lion {
 
     // 머리통
     ctx.beginPath();
-    ctx.fillStyle = "rgba(197,149,50,1)"; // 갈색 피부
+    ctx.fillStyle = this.color(); // 갈색 피부
     ctx.lineCap = "round";
     ctx.ellipse(this.center.x, this.center.y, 50, 44.5, 0, 0, PI2, true);
     ctx.stroke();
