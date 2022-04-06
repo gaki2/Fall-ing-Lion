@@ -14,6 +14,14 @@ export default class Footer {
     this.$wrapper.className = "footer_wrapper";
   }
 
+  changeText(isFull) {
+    if (isFull) {
+      this.$footer_fullscreen.innerText = "exit fullscreen";
+    } else {
+      this.$footer_fullscreen.innerText = "fullscreen";
+    }
+  }
+
   fullscreen() {
     this.$footer_fullscreen = document.createElement("div");
     this.$footer_fullscreen.className = "fullscreen";
