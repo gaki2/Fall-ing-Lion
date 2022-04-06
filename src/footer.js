@@ -4,9 +4,7 @@ export default class Footer {
     this.makeFull = makeFull;
     this.wrapper();
     this.name();
-    if (!isMobile()) {
-      this.fullscreen();
-    }
+    this.fullscreen();
   }
 
   wrapper() {
@@ -37,7 +35,9 @@ export default class Footer {
 
   render() {
     this.$wrapper.appendChild(this.$footer_name);
-    this.$wrapper.appendChild(this.$footer_fullscreen);
+    if (!isMobile()) {
+      this.$wrapper.appendChild(this.$footer_fullscreen);
+    }
     document.body.appendChild(this.$wrapper);
   }
 }
